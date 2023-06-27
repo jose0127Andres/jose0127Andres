@@ -1,0 +1,127 @@
+
+body{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 1%, rgba(0,212,255,1) 50%, rgba(9,9,121,1) 95%);
+}
+
+
+.calculator {
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.10);
+  width: 400px; /* Ancho de la calculadora */
+  height: 500px;
+}
+
+#display {
+  margin-left: -5px;
+  width: calc(100% - 10px); /* Ajusta el ancho para tener en cuenta el padding */
+  max-height: 100px; /* Limita la altura del display a 100px (ajusta según tus necesidades) */
+  padding: 5px; /* Aplica un padding en lugar de un margen */
+  overflow: hidden; 
+  padding-top: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: none;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.buttons {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  
+  
+}
+button {
+  transition: transform 0.2s;
+
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button {
+    padding: 15px;
+  font-size: 20px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+#powerButton{ font-family: 'Common Pixel', sans-serif;
+margin: 10px;
+margin-left: -5px;}
+/* Estilo de Pixel Art para números y letras */
+button.number,
+button.operator {
+    font-family: 'Common Pixel', sans-serif;
+                                                
+  font-size: 18px;
+  text-shadow: 1px 1px 1px #000;
+  width: 90px; 
+  height:95px;
+  margin: auto;
+}
+.calculator {
+  /* Resto de los estilos */
+}
+
+#display {
+  /* Resto de los estilos */
+ 
+}
+
+.display-on {
+  background-color: #a53434;
+  color: #b71010;
+}
+
+.display-off {
+  background-color: #2c1ec5;
+  color: #190f9e;
+}
+
+
+#equals{
+    height: 135px;
+}
+ 
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.footer-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  font-size: 24px;
+}
+
+.social-icons a {
+  color: #333;
+  margin-right: 10px;
+}
+
+.social-icons a:hover {
+  color: #e91e63;
+}
