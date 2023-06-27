@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <link rel="stylesheet" type="text/css" href="stilos.css">
+ 
+</head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-some_code" crossorigin="anonymous" />
+
+<body>
+  <div class="calculator">
+    <button id="powerButton">Encender</button>
+    <input id="display" type="text" readonly placeholder="Calcule ahora">
+    <div class="buttons">
+      <div class="row">
+        <button class="number" data-value="7">7</button>
+        <button class="number" data-value="8">8</button>
+        <button class="number" data-value="9">9</button>
+        <button class="operator"data-value="+">+</button>
+      </div>
+      <div class="row">
+        <button class="number" data-value="4">4</button>
+        <button class="number" data-value="5">5</button>
+        <button class="number" data-value="6">6</button>
+        <button class="operator"data-value="-">-</button>
+      </div>
+      <div class="row">
+        <button class="number"data-value="1">1</button>
+        <button class="number"data-value="2">2</button>
+        <button class="number"data-value="3">3</button>
+        <button class="operator"data-value="*">X</button>
+      </div>
+      <div class="row">
+        <button class="number"data-value="0"><b>0</b></button>
+        <button class="operator" data-value="/"><h3>÷</h3></button>
+        <button class="decimal"data-value=".">.</button>
+        <button id="equals" data-value="=">=</button>
+       
+        
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">
+     JOSE ANDRES 
+      </div>
+    
+        <div class="social-icons">
+            <a href="url_de_tu_perfil_de_facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="url_de_tu_perfil_de_instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="url_de_tu_perfil_de_github" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          
+    
+    </div>
+    <div class="copyright">
+      &copy; Año de creación 2023- Todos los derechos reservados
+    </div>
+  </footer>
+  <script>var display = document.getElementById('display');
+    
+    // Variable para almacenar la expresión a evaluar
+    var expression = '';
+    
+    // Función para actualizar el valor en el display
+    function updateDisplay(value) {
+      expression += value;
+      display.value = expression;
+    }
+    
+    // Función para calcular el resultado
+    function calculate() {
+      try {
+        var result = eval(expression);
+        display.value = result;
+        expression = ''; // Reiniciamos la expresión
+      } catch (error) {
+        display.value = 'Error';
+        expression = ''; // Reiniciamos la expresión
+      }
+    }
+    
+    // Función para borrar el último carácter ingresado
+    function deleteLastCharacter() {
+      expression = expression.slice(0, -1);
+      display.value = expression;
+    }
+    
+    // Función para borrar el contenido del display
+    function clearDisplay() {
+      expression = '';
+      display.value = '';
+    }
+    
+    // Obtenemos la referencia a todos los botones
+    var buttons = document.querySelectorAll('.buttons button');
+    
+    // Recorremos los botones y les agregamos el evento de clic
+    buttons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        var value = this.getAttribute('data-value');
+    
+        if (value === '=') {
+          calculate();
+        } else if (value === 'C') {
+          clearDisplay();
+        } else if (value === 'DEL') {
+          deleteLastCharacter();
+        } else {
+          updateDisplay(value);
+        }
+      });
+    });
+
+    var powerButton = document.getElementById('powerButton');
+var isCalculatorOn = false;
+
+powerButton.addEventListener('click', function() {
+  isCalculatorOn = !isCalculatorOn; // Cambia el estado del encendido/apagado
+
+  if (isCalculatorOn) {
+    powerButton.textContent = 'Apagar';
+    enableCalculator();
+  } else {
+    powerButton.textContent = 'Encender';
+    disableCalculator();
+  }
+});
+
+function enableCalculator() {
+  buttons.forEach(function(button) {
+    button.disabled = false; // Habilita todos los botones
+  });
+}
+
+function disableCalculator() {
+  buttons.forEach(function(button) {
+    button.disabled = true; // Deshabilita todos los botones
+  });
+}
+
+disableCalculator();</script>
+  <link rel="script" type="text/js" href="scipt.js">
+ 
+</body>
+</html>
