@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora Científica</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">Bienvenido a la Calculadora Científica</h1>
+  </div>
+    
+  <div class="calculator">
+    <div class="screen">
+      <input type="text" id="display" readonly>
+    </div>
+    <div class="buttons">
+      <button class="button" value="7">7</button>
+      <button class="button" value="8">8</button>
+      <button class="button" value="9">9</button>
+      <button class="button" value="/">/</button>
+      <button class="button" value="4">4</button>
+      <button class="button" value="5">5</button>
+      <button class="button" value="6">6</button>
+      <button class="button" value="*">x</button>
+      <button class="button" value="1">1</button>
+      <button class="button" value="2">2</button>
+      <button class="button" value="3">3</button>
+      <button class="button" value="sin">sin</button>
+      <button class="button" value="cos">cos</button>
+      <button class="button" value="0">0</button>
+
+      <button class="button" value="+">+</button>
+      <button class="button" value="log">log</button>
+      <button class="button" value="ln">ln</button>
+      <button class="button" value="sqrt">sqrt</button>
+      <button class="button" value="-">-</button>
+    
+      <button class="button" value="^">^</button>
+      <button class="button" value="(">(</button>
+      <button class="button" value=")">)</button>
+      <button class="button" value="!">!</button>
+      <button class="button" value="%">%</button>
+      <button class="button" value="C">C</button>
+      <button class="button" value="tan">tan</button>
+      
+      <button class="button" value=".">.</button>
+      <button class="button" value="=">=</button>
+    </div>
+  </div>
+  <script>
+$(document).ready(function() {
+  var display = $('#display');
+
+  $('.button').on('click', function() {
+    var buttonValue = $(this).val();
+
+    if (buttonValue === '=') {
+      var equation = display.val();
+      var result = eval(equation);
+      display.val(result);
+    } else if (buttonValue === 'C') {
+      display.val('');
+    } else if (buttonValue === 'sin') {
+      var result = Math.sin(parseFloat(display.val()));
+      display.val(result);
+    } else if (buttonValue === 'cos') {
+      var result = Math.cos(parseFloat(display.val()));
+      display.val(result);
+    } else if (buttonValue === 'log') {
+      var result = Math.log10(parseFloat(display.val()));
+      display.val(result);
+    } else if (buttonValue === 'ln') {
+      var result = Math.log(parseFloat(display.val()));
+      display.val(result);
+    } else if (buttonValue === 'sqrt') {
+      var result = Math.sqrt(parseFloat(display.val()));
+      display.val(result);
+    } else {
+      display.val(display.val() + buttonValue);
+    }
+  });
+});
+
+$(document).ready(function() {
+  $('.button').on('click', function() {
+    var button = $(this);
+    var buttonValue = button.val();
+    
+    // Aplicar la clase al botón
+    button.addClass('clicked');
+    
+    // Eliminar la clase después de 500ms (0.5 segundos)
+    setTimeout(function() {
+      button.removeClass('clicked');
+    }, 500);
+    
+    // Resto de la lógica del botón
+    // ...
+  });
+});
+
+$(document).ready(function() {
+  $('.button').on('mousedown', function() {
+    $(this).addClass('clicked');
+  });
+  
+  $('.button').on('mouseup', function() {
+    $(this).removeClass('clicked');
+  });
+});
+//maquina de escribir
+$(document).ready(function() {
+      var examples = [
+        "Ejemplo 1",
+        "Ejemplo 2",
+        "Ejemplo 3"
+      ];
+
+      var titleAnimation = $("#title-animation");
+      var currentIndex = 0;
+
+      function animateTitle() {
+        titleAnimation.text(examples[currentIndex]);
+        currentIndex = (currentIndex + 1) % examples.length;
+        setTimeout(animateTitle, 2000);
+      }
+
+      animateTitle();
+    });
+
+  </script>
+
+  <script>
+    
+  </script>
+</body>
+</html>
